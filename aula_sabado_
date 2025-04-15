@@ -1,0 +1,423 @@
+############################################################### ex.1 ####################################
+estoque = {}
+opcao = int
+
+opcao < 0  
+# O loop não para enquanto opcao for menor que 0 
+while opcao < 0:
+    print("A opção é negativa:", opcao)
+    # Lista 
+opcoes = [-5, -3, -1, 1, 3, 5] 
+for opcao in opcoes:  
+
+    if opcao < 0:
+        print(f"A opção {opcao} é negativa")
+    else:
+        print(f"A opção {opcao} não é negativa")
+
+while True:
+    print("menu: ")
+    print("Adicionar Produto")
+    print("Consultar Produto")
+    print("Sair")
+    print(opcao)
+
+    opcao = int(input("Escolha uma opção: "))
+    
+    if opcao == 1:
+        nome_produto = input("Digite o nome do produto: ")
+        print(f"Você digitou o produto: {nome_produto}")
+
+        quantidade = int(input("Digite a quantidade: "))
+        print(f"Você digitou a quantidade: {quantidade}")
+        
+        if nome_produto in estoque:
+            estoque[nome_produto] += quantidade
+            print("Quantidade atualizada!")
+        else:
+            estoque[nome_produto] = quantidade
+            print("Produto adicionado!")
+
+    # o comando elif é uma abreviação para o comando else if 
+    elif opcao == 2:
+        nome_produto = input("Digite o nome do produto para consulta: ")
+        print(nome_produto)
+        
+        if nome_produto in estoque:
+            print(f"Quantidade disponível: {estoque[nome_produto]}")
+        else:
+            print("Produto não encontrado.")
+# a letra "f" dentro do dicionario do primeiro print significa um "f-string" que é uma expressão dentro de uma string
+    
+    elif opcao == 3:
+        print("Saindo do sistema...")
+        break
+    
+    else:
+        print("Opção inválida! Tente novamente.")
+
+################################################################ ex.2 ############################################
+soma_pares = int
+soma_impares = int 
+numero = int
+
+soma_pares < 0
+soma_impares < 0
+
+print("Digite um número positivo para classificar(ou um número negativo para sair)")
+
+print(numero)
+
+while numero >= 0:
+    if numero % 2 == 0:
+        soma_pares += numero
+        print(f"Número {numero} é PAR.")
+    else:
+        soma_impares += numero
+        print(f"Número {numero} é ÍMPAR.")
+
+while numero >= 0:
+ numero = int(input("Digite outro número (ou um número negativo para sair): "))
+
+print("Processo encerrado.")
+print(f"Soma total dos números PARES: {soma_pares}")
+print(f"Soma total dos números ÍMPARES: {soma_impares}")
+
+############################################################# ex.3 ##########################################
+# Solicita o nome do usuário
+nome = input("Digite seu nome: ")
+
+# Solicita a idade do usuário
+idade = int(input("Digite sua idade: "))
+
+# Exibe a mensagem com o nome e a idade
+print(f"Olá, {nome}! Você tem {idade} anos.")
+
+########################################################### ex.4 ############################################
+# Solicita a temperatura em Celsius
+celsius = float(input("Digite a temperatura em Celsius: "))
+
+# Converte a temperatura de Celsius para Fahrenheit
+fahrenheit = (celsius * 9/5) + 32
+
+# Exibe o resultado
+print(f"A temperatura em Fahrenheit é: {fahrenheit}°F")
+
+######################################################## ex.5 ###############################################
+# Solicita dois números inteiros ao usuário
+num1 = int(input("Digite o primeiro número: "))
+num2 = int(input("Digite o segundo número: "))
+
+# Calcula as operações
+soma = num1 + num2
+subtracao = num1 - num2
+multiplicacao = num1 * num2
+# Verifica se o divisor é zero antes de tentar a divisão
+if num2 != 0:
+    divisao = num1 / num2
+else:
+    divisao = "Não é possível dividir por zero"
+
+# Exibe os resultados
+print(f"Soma: {soma}")
+print(f"Subtração: {subtracao}")
+print(f"Multiplicação: {multiplicacao}")
+print(f"Divisão: {divisao}")
+
+#################################################### ex.6 ################################################
+# Solicita um número inteiro ao usuário
+numero = int(input("Digite um número: "))
+
+# Verifica se o número é par ou ímpar
+if numero % 2 == 0:
+    print(f"O número {numero} é PAR.")
+else:
+    print(f"O número {numero} é ÍMPAR.")
+
+################################################# ex.7 ###################################################
+# Solicita a nota do aluno
+nota = float(input("Digite a nota do aluno (de 0 a 10): "))
+
+# Verifica se a nota é válida
+if 0 <= nota <= 10:
+    # Verifica se o aluno está aprovado ou reprovado
+    if nota >= 6:
+        print("O aluno está APROVADO!")
+    else:
+        print("O aluno está REPROVADO!")
+else:
+    print("Nota inválida! Por favor, digite uma nota entre 0 e 10.")
+
+############################################## ex.8 #####################################################
+# Um ano é bissexto se:
+# 1. For divisível por 4
+# 2. NÃO for divisível por 100
+#    (exceto se for divisível por 400, aí é bissexto mesmo assim)
+
+ano = int(input("Digite um ano: "))
+
+# Verifica se o ano é bissexto
+if ano % 4 == 0:
+    if ano % 100 == 0:
+        if ano % 400 == 0:
+            print(f"{ano} é bissexto.")
+        else:
+            print(f"{ano} NÃO é bissexto.")
+    else:
+        print(f"{ano} é bissexto.")
+else:
+    print(f"{ano} NÃO é bissexto.")
+
+############################################ ex.9 ######################################################
+USANDO WHILE
+
+# Usando while
+contador = 1
+while contador <= 10:
+    print(contador)
+    contador += 1
+
+USANDO FOR
+
+# Usando for
+for i in range(1, 11):
+    print(i)
+
+########################################## ex.10 ####################################################
+# Solicita um número ao usuário
+numero = int(input("Digite um número para ver sua tabuada: "))
+
+# Exibe a tabuada do número
+print(f"Tabuada do {numero}:")
+for i in range(1, 11):
+    print(f"{numero} x {i} = {numero * i}")
+
+######################################### ex.11 ###################################################
+# Inicializa a soma
+soma = 0
+
+# Soma os números pares de 1 a 100
+for i in range(2, 101, 2):  # Começa de 2 e vai até 100, pulando de 2 em 2
+    soma += i
+
+# Exibe o resultado
+print(f"A soma dos números pares de 1 a 100 é: {soma}")
+
+######################################## ex.12 ####################################################
+# Cria uma lista vazia para armazenar os números
+numeros = []
+
+# Solicita 5 números ao usuário
+for i in range(5):
+    numero = float(input(f"Digite o {i+1}º número: "))
+    numeros.append(numero)
+
+# Encontra o maior e o menor número da lista
+maior = max(numeros)
+menor = min(numeros)
+
+# Exibe o maior e o menor número
+print(f"O maior número é: {maior}")
+print(f"O menor número é: {menor}")
+
+####################################### ex.13 ###################################################
+# Função para contar quantas vezes um número aparece na lista
+def contar_ocorrencias(lista, numero):
+    return lista.count(numero)  # Usamos o método count() para contar as ocorrências
+
+# Exemplo de uso da função
+lista = [2, 3, 4, 7, 8, 9, 9, 1, 5, 8, 7, 2]  # Lista de exemplo
+numero = int(input("Digite um número para contar suas ocorrências na lista: "))
+
+# Chama a função e exibe o resultado
+resultado = contar_ocorrencias(lista, numero)
+print(f"O número {numero} aparece {resultado} vez(es) na lista.")
+
+###################################### ex.14 ###################################################
+# Solicita uma frase ao usuário
+frase = input("Digite uma frase: ")
+
+# Inverte a frase
+frase_invertida = frase[::-1]
+
+# Exibe a frase invertida
+print(f"A frase invertida é: {frase_invertida}")
+
+###################################### ex.15 ##################################################
+# Solicita uma palavra ao usuário
+palavra = input("Digite uma palavra: ")
+
+# Verifica se a palavra é um palíndromo
+if palavra == palavra[::-1]:
+    print(f"A palavra '{palavra}' é um palíndromo.")
+else:
+    print(f"A palavra '{palavra}' não é um palíndromo.")
+
+#################################### ex.16 ####################################################
+# Solicita uma frase ao usuário
+frase = input("Digite uma frase: ")
+
+# Define as vogais
+vogais = "aeiouAEIOU"
+
+# Conta as vogais na frase
+contagem_vogais = sum(1 for letra in frase if letra in vogais)
+
+# Exibe o resultado
+print(f"A frase contém {contagem_vogais} vogais.")
+
+################################### ex.17 ###################################################
+# Função para calcular a média de dois números
+def calcular_media(num1, num2):
+    media = (num1 + num2) / 2
+    return media
+
+# Exemplo de uso da função
+numero1 = float(input("Digite o primeiro número: "))
+numero2 = float(input("Digite o segundo número: "))
+
+# Chama a função e exibe o resultado
+resultado = calcular_media(numero1, numero2)
+print(f"A média entre {numero1} e {numero2} é: {resultado}")
+
+################################# ex.18 ###################################################
+# Função para verificar se o número é primo
+def verificar_primo(numero):
+    if numero <= 1:
+        return False  # Números menores ou iguais a 1 não são primos
+    for i in range(2, int(numero ** 0.5) + 1):  # Verifica até a raiz quadrada do número
+        if numero % i == 0:
+            return False  # Se houver um divisor, não é primo
+    return True  # Se não houver divisores, o número é primo
+
+# Exemplo de uso da função
+numero = int(input("Digite um número para verificar se é primo: "))
+
+# Chama a função e exibe o resultado
+if verificar_primo(numero):
+    print(f"O número {numero} é primo.")
+else:
+    print(f"O número {numero} não é primo.")
+
+################################## ex.19 ################################################
+# Função para somar os elementos de uma lista
+def soma_elementos(lista):
+    return sum(lista)  # A função sum() soma todos os elementos da lista
+
+# Exemplo de uso da função
+numeros = [2, 3, 4, 7, 8]  # Exemplo de lista
+
+# Chama a função e exibe o resultado
+resultado = soma_elementos(numeros)
+print(f"A soma dos elementos da lista é: {resultado}")
+
+######################################## ex.20 ########################################
+# Cria um dicionário vazio para armazenar as informações
+pessoas = {}
+
+# Solicita ao usuário para digitar o nome e idade de 3 pessoas
+quantidade_pessoas = int(input("Quantas pessoas você deseja cadastrar? "))
+
+for _ in range(quantidade_pessoas):
+    nome = input("Digite o nome: ")
+    idade = int(input(f"Digite a idade de {nome}: "))
+    
+    # Armazena no dicionário o nome como chave e a idade como valor
+    pessoas[nome] = idade
+
+# Exibe as pessoas maiores de idade
+print("\nPessoas maiores de idade:")
+for nome, idade in pessoas.items():
+    if idade >= 18:
+        print(f"{nome} tem {idade} anos e é maior de idade.")
+
+#################################### ex.21 ##########################################
+import random
+
+# O programa escolhe um número aleatório entre 1 e 10
+numero_secreto = random.randint(1, 10)
+
+# Solicita ao usuário para tentar adivinhar o número
+tentativas = 0
+acertou = False
+
+print("Bem-vindo ao jogo de adivinhação!")
+print("Tente adivinhar o número que eu escolhi entre 1 e 10.")
+
+# Loop que continua até o usuário acertar o número
+while not acertou:
+    tentativa = int(input("Digite o seu palpite: "))
+    tentativas += 1
+    
+    if tentativa < numero_secreto:
+        print("O número secreto é maior! Tente novamente.")
+    elif tentativa > numero_secreto:
+        print("O número secreto é menor! Tente novamente.")
+    else:
+        acertou = True
+        print(f"Parabéns! Você acertou o número secreto {numero_secreto} em {tentativas} tentativas.")
+
+######################################## ex.22 ########################################
+# Função para simular o caixa eletrônico
+def caixa_eletronico(valor):
+    # Inicializa as variáveis para contar as notas
+    notas_100 = notas_50 = notas_20 = notas_10 = notas_1 = 0
+    
+    # Calcula quantas notas de 100 são necessárias
+    if valor >= 100:
+        notas_100 = valor // 100
+        valor = valor % 100
+    
+    # Calcula quantas notas de 50 são necessárias
+    if valor >= 50:
+        notas_50 = valor // 50
+        valor = valor % 50
+    
+    # Calcula quantas notas de 20 são necessárias
+    if valor >= 20:
+        notas_20 = valor // 20
+        valor = valor % 20
+    
+    # Calcula quantas notas de 10 são necessárias
+    if valor >= 10:
+        notas_10 = valor // 10
+        valor = valor % 10
+    
+    # Calcula quantas notas de 1 são necessárias
+    if valor >= 1:
+        notas_1 = valor // 1
+        valor = valor % 1
+
+    # Exibe o resultado
+    print(f"Notas de 100: {notas_100}")
+    print(f"Notas de 50: {notas_50}")
+    print(f"Notas de 20: {notas_20}")
+    print(f"Notas de 10: {notas_10}")
+    print(f"Notas de 1: {notas_1}")
+
+# Solicita o valor ao usuário
+valor = int(input("Digite o valor a ser sacado: "))
+
+# Chama a função para simular o caixa eletrônico
+caixa_eletronico(valor)
+
+########################################## ex.23 #########################################
+import random
+import string
+
+# Função para gerar a senha aleatória
+def gerar_senha(tamanho=12):
+    # Definindo os caracteres possíveis para a senha
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    
+    # Gerando a senha aleatória
+    senha = ''.join(random.choice(caracteres) for _ in range(tamanho))
+    
+    return senha
+
+# Solicita o tamanho da senha
+tamanho_senha = int(input("Digite quantos caracteres deseja em sua senha : "))
+
+# Gera e exibe a senha
+senha_gerada = gerar_senha(tamanho_senha)
+print(f"Sua senha gerada é: {senha_gerada}")
